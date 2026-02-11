@@ -1,6 +1,7 @@
 import { getRestaurantBySlug } from "@/data/get-restaurant-by-slug";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import ConsumptionMethodOption from "./components/consumption-method-option";
 
 interface RestaurantPageProps {
   params: { slug: string };
@@ -27,8 +28,21 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
       <div className="pt24 text-center space-y-2">
         <h3 className="text-2xl font-semibold">Seja Bem Vindo!</h3>
         <p className="opacity-55">
-          Explore nosso menu e faça seu pedido online.
+          Explore nosso menu e faça seu pedido online. Começe escolhendo como
+          deseja receber:
         </p>
+      </div>
+      <div className="pt-14 grid grid-cols-2 gap-4">
+        <ConsumptionMethodOption
+          buttonText="Para Retirar"
+          imageAlt="Retirar"
+          imageUrl="/dine-in.png"
+        />
+        <ConsumptionMethodOption
+          buttonText="Para Entregar"
+          imageAlt="Delivery"
+          imageUrl="/delivery.png"
+        />
       </div>
     </div>
   );
